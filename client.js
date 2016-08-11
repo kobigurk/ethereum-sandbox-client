@@ -20,7 +20,7 @@ var _ = require('lodash');
 var async = require('async');
 var request = require('request');
 var Web3 = require('web3');
-var SandboxContainer = require('ethereum-sandbox-test');
+var SandboxContainer = require('ethereum-sandbox');
 var configParser = require('./config-parser');
 
 function Sandbox(rootUrl) {
@@ -178,6 +178,11 @@ function extend(web3) {
       new web3._extend.Method({
         name: 'receipt',
         call: 'sandbox_receipt',
+        params: 1
+      }),
+      new web3._extend.Method({
+        name: 'fastForward',
+        call: 'sandbox_fastForward',
         params: 1
       })
     ],
